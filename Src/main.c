@@ -34,7 +34,9 @@ int main(void)
 }
 
 void rcc_config(void){
-
-
+	// enable HSE
+	RCC->CR |= RCC_CR_HSEON;
+	// wait until HSE ready
+	while(!(RCC->CR & RCC_CR_HSERDY));
 
 }
