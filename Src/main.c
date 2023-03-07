@@ -23,19 +23,42 @@
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
+#define LED_PIN     0x20
+#define LED_PORT    GPIOA
+
+void delay(int time);
+void gpio_config(void);
 void rcc_config(void);
 void StartHSE(void);
 
 int main(void)
 {
 	rcc_config();
+	gpio_config();
 
     /* Loop forever */
-	for(;;);
+	for(;;){
+		GPIOA->BSRR |= LED_PIN; // Set LED_PIN high
+		delay(1000000);         // Delay
+		GPIOA->BRR |= LED_PIN;  // Set LED_PIN low
+		delay(1000000);         // Delay
+	}
+}
+
+// Simple delay function
+void delay(int time)
+{
+    for(int i = 0; i < time; i++);
+}
+
+void gpio_config(void){
+	GPIOA->MODER |= GPIO_MODER_MODER5_0; // Set PA5 as output
 }
 
 void rcc_config(void){
+
 	StartHSE();
+	RCC->AHBENR |= RCC_AHBENR_GPIOAEN;  // Enable GPIOA clock
 }
 
 /**

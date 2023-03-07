@@ -1,6 +1,8 @@
 C:/Users/kerem/STM32CubeIDE/workspace_1.9.0/nucleo-f070rb-spi-to-uart-converter/Drivers/CMSIS/Core/Include/core_cm0.h:623:22:__NVIC_EnableIRQ	16	static
 C:/Users/kerem/STM32CubeIDE/workspace_1.9.0/nucleo-f070rb-spi-to-uart-converter/Drivers/CMSIS/Core/Include/core_cm0.h:730:22:__NVIC_SetPriority	24	static
-../Src/main.c:29:5:main	8	static
-../Src/main.c:37:6:rcc_config	8	static
-../Src/main.c:45:15:StartHSE	8	static
-../Src/main.c:67:6:RCC_IRQHandler	8	static
+../Src/main.c:34:5:main	8	static
+../Src/main.c:49:6:delay	24	static
+../Src/main.c:54:6:gpio_config	8	static
+../Src/main.c:58:6:rcc_config	8	static
+../Src/main.c:68:15:StartHSE	8	static
+../Src/main.c:90:6:RCC_IRQHandler	8	static
